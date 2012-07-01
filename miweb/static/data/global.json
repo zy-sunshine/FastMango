@@ -1,0 +1,13 @@
+{
+    "ui": {
+        "welcome": {
+            "id1": "id1value",
+            "id2": "id2value"
+        },
+        "parted" : {}
+    },
+    "mem":{
+        "g_var1": "g_var1value",
+        "g_var2": "g_var2value"
+    }
+}

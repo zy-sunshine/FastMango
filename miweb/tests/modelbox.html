@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { color:blue; margin:20px; }
+  span { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+  <p>
+  </p>
+<script>
+
+    $("p").html("This frame uses the W3C box model: <span>" +
+                jQuery.support.boxModel + "</span>");
+
+</script>
+
+</body>
+</html>

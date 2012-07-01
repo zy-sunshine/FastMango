@@ -1,0 +1,19 @@
+<html>
+<head>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <title>testJson</title>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery.json.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+    g = new Global();
+    g.init();
+    //while(!g.inited){};
+    alert($.toJSON(g.ui));
+    alert($.toJSON(g.mem));
+    //debug(g.ui);
+</script>
+</body>
+</html>

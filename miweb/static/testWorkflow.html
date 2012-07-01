@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <title>test1</title>
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+function WF_Test(cbfunc, cbdata)
+{
+    MiWorkFlow.call(this, cbfunc, cbdata);
+    this.label = _('Test Label');
+    this.status = _('Test Workflow');
+    this.start = function(){
+        this.status = _('Test Workflow start');
+        this.progress = 0.0;
+        return {
+            'listen': [['test_step0', this.step0]],
+            'cmd': [this.test_step0, null]}
+    };
+    this.step0 = function(){
+        this.status = _('Test Workflow step0');
+        self.progress = 0.33;
+        return {
+            'listen': [['test_step1', this.step1],
+                       ['test_step1_err1', this.step1_err1]],
+            'cmd': [['test_step1', null],]}
+    };
+    this.step1_err1 = function(){
+        alert('step1_err triggered!');
+    };
+    this.step1 = function(){
+        this.status = _('Test Workflow step1')
+        this.progress = 0.66;
+        return {
+            'result': true,
+            'data': {'retdata': 'I am ret result data'}
+        }
+    };
+}
+inheritPrototype(WF_Test, MiWorkFlow);
+var worker = new MiWorker();
+worker.issue_workflow(new WF_Test(NextOpt, 'NextOpt data'));
+function NextOpt(data, ret, retdata)
+{
+    debug('data: ' + data);
+    debug('ret: ' + ret);
+    debug('retdata: ' + retdata);
+}
+</script>
+<dev id="debug"></div>
+</body>
+</html>

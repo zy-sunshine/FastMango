@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <link rel="stylesheet" href="../css/buttons_simple.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.7.2.js" type="text/javascript"></script>
+    <style>
+body{
+font: sans-serif;
+}
+.main {
+    border: 1px solid black;
+    width: 800px;
+    height: 600px;
+}
+.leftpanel {
+    border: 1px solid grey;
+    width: 152px;
+    float: left;
+    margin: 3px;
+}
+.expander {
+    width: 100%;
+    height: 100%;
+}
+.rightpanel {
+    border: 1px solid grey;
+    width: 632px;
+    height: 450px;
+    float: right;
+    margin: 3px;
+}
+div.progressbar { 
+   /*position: relative; /* IE is dumb */
+    display: block;                 
+    float: left;     
+/*    width: 500px; */
+    height: 16px; 
+    margin: 0 0 2px; 
+    background: #fff; 
+}
+
+div.progressbar div.blue { 
+    /*position: relative; */
+    background: #00f; 
+    height: 16px; 
+/*    width: 75%; */
+    text-align:right; 
+    display:block;
+    float: left;
+}
+div.progressbar div.red { 
+    /*position: relative; */
+    background: #f00; 
+    height: 16px; 
+/*    width: 75%; */
+    text-align:right; 
+    display:block;
+    float: left;
+}
+a{
+cursor: pointer;
+}
+.leftbtn
+{
+width: 90%;
+margin: 3px;
+}
+.bottombtnbar
+{
+margin: 4px;
+padding: 3px;
+float: left;
+}
+.progressbar
+{
+border: 1px solid red;
+width: 98%;
+float: left;
+margin: 3px;
+padding: 1px;
+}
+    </style>
+<script type="text/javascript">
+function nextOpt()
+{
+/*
+    $.get("http://127.0.0.1:8080/", {Action:"get",Name:"lulu"}, function (data, textStatus){
+                alert("aabb");
+                //返回的 data 可以是 xmlDoc, jsonObj, html, text, 等等.
+                this; // 在这里this指向的是Ajax请求的选项配置信息，请参考下图
+                alert(data);
+                //alert(textStatus);//请求状态：success，error等等。
+                //                  当然这里捕捉不到error，因为error的时候根本不会运行该回调函数
+                //alert(this);
+        });
+*/
+$.ajax({
+  url: "t1.html",
+  context: document.body
+}).done(function() { 
+    alert("done");
+});
+}
+</script>
+  </head>
+  <body>
+
+<div class="main">
+    <img src="../images/banner.png"></img>
+    <div class="leftpanel">
+        <h2>Steps</h2>
+        <!--a class="coolbtn">button1</a-->
+        <button class="leftbtn minimal">Welcome</button>
+        <button class="leftbtn minimal">Partition</button>
+        <button class="leftbtn minimal">Set Bootloader</button>
+        <button class="leftbtn minimal">Select Package</button>
+        <button class="leftbtn minimal">Install Packages</button>
+        <button class="leftbtn minimal">Start Setup</button>
+        <button class="leftbtn minimal">Set Account</button>
+        <button class="leftbtn minimal">Xwindow Configuration</button>
+        <button class="leftbtn minimal">Make Setup Effect</button>
+        <button class="leftbtn minimal">Install Finished</button>
+       <!-- <div class="expander"></div>-->
+        <!--table name="steptables" columns="2" margin="4" colspacings="4" rowspacings="4"/-->
+        <!--label expand="true"/-->
+    </div>
+    <div class="rightpanel">
+        <!--p>mim_notebook name=\"mi_main\" expand=\"true\" fill=\"true\"</p-->
+        <!--mim_notebook name="mi_main" expand="true" fill="true"/-->
+    <p line_wrap="true" fill="true">
+Most of the softwares that distributed in MagicLinux are licensed by free software license. These licenses include: GPL, LGPL, MPL, BSD License, and so on. This program, MagicInstaller, is licensed by General Public License. If you are not agree General Public License, sure you can't use this MagicInstaller to install MagicLinux. Read it carefully please
+<p/>
+    </div>
+
+<div id="progressbar" class="progressbar">
+    <div class="blue" style="width:35%;"></div>
+    <div class="red" style="width:10%;"></div>
+  <!--<hbox margin="4" spacing="4">
+    <label name="mi_step_label" show="false"/>
+    <progressbar name="mi_step" pack="start" expand="true" fill="true" show="false"/>
+  </hbox>-->
+</div>
+
+  <div name="mi_action" class="bottombtnbar">
+    <button class="clean-gray" name="btnlogger" class="minimal">((_Logger))
+<!--        <hbox>
+        <image file="images/stock_help_24.png"/>
+        <label text="((_Logger))" use_underline="true" expand="true" fill="true"/>
+      </hbox>
+-->
+    </button> 
+    <button class="clean-gray" tips="((Theme Choice))" clicked="btntheme_clicked" pack="start">((Theme Choice))
+<!--      <image file="images/gnome-ccthemes-24.png" fill="true"/>-->
+    </button>
+    <button class="clean-gray" name="btnhelp" clicked="btnhelp_clicked" pack="start">((_Help))
+<!--      <hbox>
+        <image file="images/stock_help_24.png"/>
+        <label text="((_Help))" use_underline="true" expand="true" fill="true"/>
+      </hbox>-->
+    </button> 
+<!--    <label text="" pack="start" expand="true" fill="true"/>-->
+    <button class="clean-gray" name="btnfinish" clicked="btnfinish_clicked" pack="end">((_Finish))
+<!--      <hbox>
+        <image file="images/stock_exit_24.png"/>
+        <label text="((_Finish))" use_underline="true" expand="true" fill="true"/>
+      </hbox>-->
+    </button>
+    <button class="clean-gray" name="btnnext" clicked="btnnext_clicked" pack="end" onclick="javascript: nextOpt();">((_Next))
+<!--      <hbox>
+        <image file="images/stock_right_arrow_24.png"/>
+        <label text="((_Next))" use_underline="true" expand="true" fill="true"/>
+      </hbox>-->
+    </button>
+    <button class="clean-gray" name="btnback" clicked="btnback_clicked" pack="end">((_Back))
+<!--      <hbox>
+        <image file="images/stock_left_arrow_24.png"/>
+        <label text="((_Back))" use_underline="true" expand="true" fill="true"/>
+      </hbox>-->
+    </button>
+    <button class="clean-gray" name="btncancel" clicked="btncancel_clicked" pack="end">((_Cancel the Installation))
+<!--      <hbox>
+        <image file="images/stock_cancel_20.png"/>
+        <label text="((_Cancel the Installation))" use_underline="true" expand="true" fill="true"/>
+      </hbox>-->
+    </button>
+  </div>
+
+
+
+</div>
+</body>
+</html>

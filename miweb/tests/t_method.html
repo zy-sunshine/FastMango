@@ -1,0 +1,20 @@
+<html>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+function submit_method_data()
+{
+    var f = $("form")[0];
+    var func = $("#func")[0];
+    var params = $("#params")[0];
+    alert(func.value);
+    f.action = '/'+func.value;
+    return true;
+}
+</script>
+<form action="/" method="POST">
+<input id="id" name="id" value="9999" />
+<input id="func" name="func" value="s_test" />
+<input id="params" name="params" value="[1,2]" />
+<button type="submit" onclick="javascript: submit_method_data()">submit</button>
+</form>
+</html>

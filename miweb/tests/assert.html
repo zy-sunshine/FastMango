@@ -1,0 +1,21 @@
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+    function assert(bCondition, sErrorMsg){
+        if (!bCondition) {
+            alert(sErrorMsg);
+            throw new Error(sErrorMsg);
+        }
+    }
+/*
+   function assert(){
+   alert('alert test');
+   }
+ */
+</script>
+</head>
+<body>
+<a href="javascript: assert(false, 'show assert message');">test</a>
+</body>
+</html>
